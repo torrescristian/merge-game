@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://clo3xa1skg1ln"]
+[gd_scene load_steps=10 format=3 uid="uid://clo3xa1skg1ln"]
 
 [ext_resource type="Script" uid="uid://d0wmq74ue5r35" path="res://scenes/level_1.gd" id="1_bswci"]
 [ext_resource type="Texture2D" uid="uid://ciuiw56upm2e6" path="res://assets/sprites/background.png" id="2_rus8k"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://2jgckwgxscpl" path="res://items/valde.tscn" id="4_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://bv0ut2j7des6s" path="res://items/rod.tscn" id="5_4nkto"]
 [ext_resource type="PackedScene" uid="uid://cwsdywoq52e05" path="res://items/hook.tscn" id="6_fcfvj"]
+[ext_resource type="AudioStream" uid="uid://y1llwc54xtu0" path="res://assets/sounds/168290__wuola__balloon-23.wav" id="7_pa8r4"]
+[ext_resource type="AudioStream" uid="uid://dfgk2ruw6wlxt" path="res://assets/sounds/cooking-on-the-beach-happy-cooking-music-beach-vibes-338333.mp3" id="8_15mv3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bswci"]
 size = Vector2(729, 1095)
@@ -43,7 +45,16 @@ scale = Vector2(0.39, 0.39)
 one_shot = true
 ignore_time_scale = true
 
+[node name="SFXAudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["Level", "SFX"]]
+stream = ExtResource("7_pa8r4")
+
+[node name="CollisionAudioPlayer" type="AudioStreamPlayer" parent="." groups=["Collision"]]
+
+[node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["Music"]]
+stream = ExtResource("8_15mv3")
+volume_db = -25.0
+autoplay = true
+
 [connection signal="next_item_created" from="." to="Siguiente" method="_on_level_1_next_item_created"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="hook_position_changed" from="Hook" to="." method="_on_hook_hook_position_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

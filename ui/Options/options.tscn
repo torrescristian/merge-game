@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=3 uid="uid://b68iyduhnu468"]
+
+[ext_resource type="Script" uid="uid://d28gtkt6gpfu7" path="res://ui/Options/options.gd" id="1_xvexa"]
+
+[node name="Options" type="Panel"]
+process_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -234.5
+offset_top = 51.55
+offset_right = 234.5
+offset_bottom = 295.5499
+grow_horizontal = 2
+script = ExtResource("1_xvexa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -95.54994
+offset_right = 173.5
+offset_bottom = 41.450066
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MusicHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/MusicHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Music Volume:"
+
+[node name="MusicHSlider" type="HSlider" parent="VBoxContainer/MusicHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -20.0
+max_value = 10.0
+step = 5.0
+
+[node name="SFXHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/SFXHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "SFX Volume:"
+
+[node name="SFXHSlider" type="HSlider" parent="VBoxContainer/SFXHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -20.0
+max_value = 10.0
+step = 5.0
+
+[node name="CloseButton" type="Button" parent="." groups=["Option"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 61.45005
+offset_right = 64.0
+offset_bottom = 92.45005
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close Options"
+
+[connection signal="value_changed" from="VBoxContainer/MusicHBoxContainer/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFXHBoxContainer/SFXHSlider" to="." method="_on_sfxh_slider_value_changed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
