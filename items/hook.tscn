@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwsdywoq52e05"]
+
+[ext_resource type="Texture2D" uid="uid://cox1886lc1ir7" path="res://assets/sprites/hook.png" id="1_pwrqr"]
+[ext_resource type="Script" uid="uid://b3xj1hcmmab6" path="res://items/hook.gd" id="2_u7vpm"]
+
+[node name="Hook" type="Node2D"]
+script = ExtResource("2_u7vpm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 2)
+texture = ExtResource("1_pwrqr")
+offset = Vector2(3, -190)
+region_enabled = true
+region_rect = Rect2(560, 464, 232, 384)

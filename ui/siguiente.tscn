@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx7l8181da1r"]
+
+[ext_resource type="Script" uid="uid://dwo8n0j6s2pq8" path="res://ui/siguiente.gd" id="1_3022p"]
+[ext_resource type="Texture2D" uid="uid://clhqggoo28ar" path="res://assets/sprites/spritesheet.png" id="2_3022p"]
+
+[sub_resource type="Theme" id="Theme_0r2wg"]
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 6
+Label/fonts/font = null
+
+[node name="Siguiente" type="Node2D"]
+script = ExtResource("1_3022p")
+
+[node name="Siguiente" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 29.0
+offset_right = 82.0
+offset_bottom = 52.0
+theme = SubResource("Theme_0r2wg")
+text = "Siguiente:"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(119.000015, 44.999996)
+rotation = -0.0004446801
+scale = Vector2(0.15177378, 0.14936468)
+texture = ExtResource("2_3022p")
+hframes = 3
+vframes = 2
+frame = 5

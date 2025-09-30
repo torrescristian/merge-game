@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv0ut2j7des6s"]
+
+[ext_resource type="Texture2D" uid="uid://432ammvvpflt" path="res://assets/sprites/rod.png" id="1_1ee8e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1ee8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ee8e"]
+size = Vector2(120.819115, 297.0151)
+
+[node name="rod" type="Sprite2D"]
+rotation = 0.20958328
+texture = ExtResource("1_1ee8e")
+region_enabled = true
+region_rect = Rect2(0, 112, 1024, 296)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_1ee8e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(176.01251, 87.2903)
+rotation = -0.24609143
+shape = SubResource("RectangleShape2D_1ee8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-457.09985, 215.82341)
+rotation = -0.1972222
+shape = SubResource("RectangleShape2D_1ee8e")

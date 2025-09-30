@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1kmoc1u21cax"]
+
+[ext_resource type="Script" uid="uid://d3vin4uekwwu2" path="res://actors/merge_item.gd" id="1_exvrg"]
+[ext_resource type="Texture2D" uid="uid://clhqggoo28ar" path="res://assets/sprites/spritesheet.png" id="1_mammd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_exvrg"]
+friction = 0.8
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_exvrg"]
+radius = 160.52725
+
+[node name="MergeItem" type="RigidBody2D" groups=["merge_item"]]
+collision_layer = 2
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_exvrg")
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_exvrg")
+actor_index = "BOB_ESPONJA"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.999999, 30.999998)
+rotation = -0.0004446801
+texture = ExtResource("1_mammd")
+hframes = 3
+vframes = 2
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_exvrg")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

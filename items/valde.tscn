@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://2jgckwgxscpl"]
+
+[ext_resource type="Texture2D" uid="uid://bo7y6gxtxncux" path="res://assets/sprites/valde.png" id="1_xkku0"]
+
+[node name="Valde" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(1, 1, 1, 0.4627451)
+position = Vector2(369, 592)
+texture = ExtResource("1_xkku0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-247, -13)
+polygon = PackedVector2Array(3, -7, 284, 561, 337, 595, 393, 964, 473, 1012, 613, 1031, 754, 1012, 839, 967, 900, 590, 982, 526, 1290, 11, 1174, 1161, 141, 1166)

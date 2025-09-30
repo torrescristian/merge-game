@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://clo3xa1skg1ln"]
+
+[ext_resource type="Script" uid="uid://d0wmq74ue5r35" path="res://scenes/level_1.gd" id="1_bswci"]
+[ext_resource type="Texture2D" uid="uid://ciuiw56upm2e6" path="res://assets/sprites/background.png" id="2_rus8k"]
+[ext_resource type="PackedScene" uid="uid://cx7l8181da1r" path="res://ui/siguiente.tscn" id="4_4nkto"]
+[ext_resource type="PackedScene" uid="uid://2jgckwgxscpl" path="res://items/valde.tscn" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://bv0ut2j7des6s" path="res://items/rod.tscn" id="5_4nkto"]
+[ext_resource type="PackedScene" uid="uid://cwsdywoq52e05" path="res://items/hook.tscn" id="6_fcfvj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bswci"]
+size = Vector2(729, 1095)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_bswci")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(354.5, 541.5)
+shape = SubResource("RectangleShape2D_bswci")
+
+[node name="Background" type="Sprite2D" parent="Area2D"]
+position = Vector2(358, 546)
+scale = Vector2(0.705, 0.705)
+texture = ExtResource("2_rus8k")
+
+[node name="Valde" parent="." instance=ExtResource("4_5xbjy")]
+position = Vector2(28, 130)
+scale = Vector2(0.92, 0.92)
+
+[node name="Siguiente" parent="." instance=ExtResource("4_4nkto")]
+position = Vector2(520, 11)
+
+[node name="rod" parent="." instance=ExtResource("5_4nkto")]
+position = Vector2(506.99997, 144)
+rotation = 0.20550546
+
+[node name="Hook" parent="." instance=ExtResource("6_fcfvj")]
+position = Vector2(323, 333)
+scale = Vector2(0.39, 0.39)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+ignore_time_scale = true
+
+[connection signal="next_item_created" from="." to="Siguiente" method="_on_level_1_next_item_created"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="hook_position_changed" from="Hook" to="." method="_on_hook_hook_position_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
